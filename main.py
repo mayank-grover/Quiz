@@ -7,6 +7,8 @@ class Question:
     self.question = question
     self.options = options
     self.answer = answer
+    
+
   def askQuestion(self):
     print(self.question + "\n")
     random.shuffle(self.options)
@@ -18,9 +20,22 @@ class Question:
     if userChoice == self.answer:
       print("Correct!")
       return True
+    
     else:
       print("Incorrect")
       return False
+
+class Quiz:
+  def __init__(self, questions):
+    self.questions = questions
+    self.correct = 0
+    self.incorrect = 0
+  def ask_questions(self):
+    for question in self.questions:
+      question.askQuestion()
+    
+
+  
 
 x = Question("What is your favourite food?", ["burger", "noodles", "brownie", "pizza"], "pizza")
 x.askQuestion()
